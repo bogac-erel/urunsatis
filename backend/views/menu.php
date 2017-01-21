@@ -6,22 +6,22 @@ echo SideNav::widget([
     'heading' => 'Menü',
     'items' => [
         [
-            'url' => '/index.php?r=siparis',
+            'url' => '/siparis',
             'label' => 'Siparişler',
             'icon' => 'home'
         ],
         [
-            'url' => '/index.php?r=setting',
+            'url' => '/setting',
             'label' => 'Site Genel Ayarları',
             'icon' => 'tag'
         ],
         [
-            'url' => '/index.php?r=urun',
+            'url' => '/urun',
             'label' => 'Ürün Ayarları',
             'icon' => 'compressed'
         ],
         [
-            'url' => '/index.php?r=yorum',
+            'url' => '/yorum',
             'label' => 'Yorumlar',
             'icon' => 'comment'
         ],
@@ -29,8 +29,8 @@ echo SideNav::widget([
             'label' => 'Ödeme Ayarları',
             'icon' => 'cog',
             'items' => [
-                ['label' => 'Banka Havalesi', 'icon'=>'calendar', 'url'=>'/index.php?r=banka'],
-                ['label' => 'iyzico', 'icon'=>'credit-card', 'url'=>'/index.php?r=iyzico'],
+                ['label' => 'Banka Havalesi', 'icon'=>'calendar', 'url'=>'/banka'],
+                ['label' => 'iyzico', 'icon'=>'credit-card', 'url'=>'/iyzico'],
             ],
         ],
     ],

@@ -26,7 +26,7 @@ $asset = \frontend\assets\AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <meta name="description" content="<?=$site_settings->description?>" />
@@ -48,15 +48,6 @@ $asset = \frontend\assets\AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    /*
-    $menuItems = [
-        ['label' => 'Anasayfa', 'url' => ['/site/index']],
-        ['label' => 'Nedir?', 'url' => ['/site/nedir']],
-        ['label' => 'Nasıl Kullanılır?', 'url' => ['/site/nasil']],
-        ['label' => 'Kullanıcı Yorumları', 'url' => ['/site/yorumlar']],
-        ['label' => 'Sipariş Ver', 'url' => ['/siparis?adet=1']],
-    ];
-    */
     $menuItems = [
         ['label' => 'Anasayfa', 'url' => ['/']],
         ['label' => 'Nedir?', 'url' => ['/site/nedir']],

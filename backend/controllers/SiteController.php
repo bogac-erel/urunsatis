@@ -60,7 +60,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->redirect('/index.php?r=siparis/index');
+        return $this->redirect('/siparis/index');
     }
 
     /**

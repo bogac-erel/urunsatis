@@ -158,9 +158,14 @@ class SiparisController extends Controller
         $iyzico = new Iyzico();
         $iyzico_keys = $iyzico->findOne(1);
 
-        //echo "<pre>";var_dump($post['Siparis']);die();
-        if ($iyzico_keys->apikey)
         $base_url = "https://sandbox-api.iyzipay.com";
+        if ($iyzico_keys->apikey) {
+            if ($iyzico_keys->mode==0) {
+                $base_url = "https://sandbox-api.iyzipay.com";
+            } else {
+                $base_url = "https://api.iyzipay.com";
+            }
+        }
 
         $options = new \Iyzipay\Options();
         $options->setApiKey($iyzico_keys->apikey);

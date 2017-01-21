@@ -28,7 +28,7 @@ class Iyzico extends \yii\db\ActiveRecord
     {
         return [
             [['id'], 'required'],
-            [['id'], 'integer'],
+            [['id', 'mode'], 'integer'],
             [['apikey', 'secret'], 'string', 'max' => 255],
         ];
     }
@@ -42,6 +42,7 @@ class Iyzico extends \yii\db\ActiveRecord
             'id' => 'ID',
             'apikey' => 'API Anahtarı',
             'secret' => 'Güvenlik Anahtarı',
+            'mode'   => 'Canlı Mod',
         ];
     }
 }

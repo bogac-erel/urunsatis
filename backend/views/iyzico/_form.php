@@ -16,6 +16,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'secret')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'mode')->checkbox(); ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Oluştur' : 'Kaydet', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary pull-right']) ?>
     </div>

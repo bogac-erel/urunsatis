@@ -66,7 +66,7 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
+<footer class="navbar-fixed-bottom">
     <div class="container">
         <p class="pull-left">&copy; Dataworkz Tek Ürün Satış Scripti <?= date('Y') ?></p>
     </div>

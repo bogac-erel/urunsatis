@@ -32,10 +32,10 @@ class Setting extends \yii\db\ActiveRecord
     {
         return [
             [['description'], 'string'],
-            [['foto'],'file'],
+            //[['foto'],'file'],
             [['kapida', 'banka', 'iyzico'], 'required'],
             [['kapida', 'banka', 'iyzico'], 'integer'],
-            [['name', 'title','telefon','keyword','foto'], 'string', 'max' => 255],
+            [['name', 'title','telefon','keyword'], 'string', 'max' => 255],
         ];
     }
 
