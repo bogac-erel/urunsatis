@@ -79,8 +79,6 @@ class SiparisController extends Controller
             $urun_fiyat = $urun->tekfiyat;
         }
 
-        //if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
         if ($model->load(Yii::$app->request->post())) {
             $post = Yii::$app->request->post();
             //echo "<pre>";var_dump($post);die();
@@ -117,7 +115,6 @@ class SiparisController extends Controller
                 $siparis->durum="Yeni";
                 $siparis->save();
 
-                //echo "<pre>";print_r($siparis_bilgi);die();
                 return $this->redirect(['view',
                     'id' => $model->id,
                     'hesap' => '',
@@ -172,9 +169,6 @@ class SiparisController extends Controller
         $options->setSecretKey($iyzico_keys->secret);
         $options->setBaseUrl($base_url);
 
-        //echo "<pre>";var_dump($options);die();
-
-
         $customer = $siparis_bilgi['adsoyad'];
         $customer_id = mt_rand(5,mt_getrandmax());
         $phone = $siparis_bilgi['telefon'];
@@ -218,7 +212,7 @@ class SiparisController extends Controller
         $request->setShippingAddress($shippingAddress);
         $billingAddress = new \Iyzipay\Model\Address();
         $billingAddress->setContactName($customer);
-        $billingAddress->setCity("Istanbul");
+        $billingAddress->setCity($city);
         $billingAddress->setCountry("Turkey");
         $billingAddress->setAddress($address);
         $request->setBillingAddress($billingAddress);
@@ -232,12 +226,7 @@ class SiparisController extends Controller
         $basketItems[0] = $firstBasketItem;
         $request->setBasketItems($basketItems);
 
-        //echo "<pre>";var_dump($request);die();
-
         $script = \Iyzipay\Model\CheckoutFormInitialize::create($request, $options)->getCheckoutFormContent();
-        //$script = \Iyzipay\Model\CheckoutFormInitialize::create($request, $options)->getCheckoutFormContent();
-
-        //echo "<pre>";var_dump($script);die();
 
         return $this->render('odeme', [
             'model' => $this->findModel($id),
@@ -256,9 +245,12 @@ class SiparisController extends Controller
             $iyzico = new Iyzico();
             $iyzico_keys = $iyzico->findOne(1);
 
-            //echo "<pre>";var_dump($post['Siparis']);die();
-
             $base_url = "https://sandbox-api.iyzipay.com";
+            if ($iyzico_keys->mode == "0") {
+            	$base_url = "https://sandbox-api.iyzipay.com";
+            } else {
+            	$base_url = "https://api.iyzipay.com";
+            }
 
             $options = new \Iyzipay\Options();
             $options->setApiKey($iyzico_keys->apikey);
